@@ -1,0 +1,195 @@
+{% extends 'shop/basic.html' %}
+{% block css %}
+          .col-md-3
+          {
+          display: inline-block;
+          margin-left:-4px;
+          }
+
+          .carousel-indicators .active {
+          background-color: blue;
+            }
+
+          .col-md-3 img{
+
+          width:100%;
+          height:auto;
+          }
+
+          body .carousel-indicator li{
+          background-color: blue;
+          }
+
+          body .carousel-indicators{
+          bottom: 0;
+          }
+
+          body .carousel-control-prev-icon,
+          body .carousel-control-next-icon{
+          background-color: blue;
+          }
+           body .no-padding{
+           padding-left: 0,
+           padding-right: 0;
+           }
+ {% endblock %}
+
+{% block body %}
+{% load static %}
+    
+    <div class="container">
+      <div id="demo" class="carousel slide my-3" data-ride="carousel">
+          <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+
+            {% for i in range %}
+            
+            
+            <li data-target="#demo" data-slide-to="{{i}}" ></li>
+            {% endfor %}
+          </ul>
+      
+          <!--Slideshow starts here -->
+          <div class="container carousel-inner no-padding">
+      
+            <div class="carousel-item active">
+              <div class="col-xs-3 col-sm-3 col-md-3">
+                <div class="card" style="width: 18rem;">
+                  <img src='{% static "shop/daddy.jpg" %}' class="card-img-top" alt="...">
+                  <div class="card-body">
+                      <h5 class="card-title">Soham Daddy</h5>
+                      <p class="card-text">Sabka daddy sabki jaan</p>
+                      <a href="#" class="btn btn-primary">Call now</a>
+                  </div>
+                </div>
+             </div>
+<!-- now using for loop we will automate rest of the entries of product all of them will be linked with the products in admin pannel -->
+             {% for i in product|slice:"1:" %}
+      
+              <div class="col-xs-3 col-sm-3 col-md-3">
+                <div class="card" style="width: 18rem;">
+                  <img src='{% static "shop/ramlal.jpg" %}' class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Dr. Adreesh</h5>
+                    <p class="card-text">Always on the phone but never picks up the call</p>
+                    <a href="#" class="btn btn-primary">Book Appointment</a>
+                  </div>
+                </div>
+              </div>
+
+              {% if forloop.counter|divisibility:3 and forloop.counter>0 and not forloop.last %}
+      
+              <div class="col-xs-3 col-sm-3 col-md-3">
+                <div class="card" style="width: 18rem;">
+                  <img src='{% static "shop/pakhi.jpg" %}' class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Pakhi</h5>
+                    <p class="card-text">Placed</p>
+                    <a href="#" class="btn btn-primary">Donate Protein</a>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="col-xs-3 col-sm-3 col-md-3">
+                <div class="card" style="width: 18rem;">
+                  <img src='{% static "shop/parag.jpg" %}' class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Parag🍀 </h5>
+                    <p class="card-text">God Tier Ganjeri</p>
+                    <a href="#" class="btn btn-primary">Contact now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="carousel-item">
+              <div class="col-xs-3 col-sm-3 col-md-3">
+                <div class="card" style="width: 18rem;">
+                  <img src='{% static "shop/kunal.jpg" %}' class="card-img-top" alt="...">
+                  <div class="card-body">
+                      <h5 class="card-title">Kunal Coder</h5>
+                      <p class="card-text">Pedophilia is my passion</p>
+                      <a href="#" class="btn btn-primary">Call now</a>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="col-xs-3 col-sm-3 col-md-3">
+                <div class="card" style="width: 18rem;">
+                  <img src='{% static "shop/debarun.jpg" %}' class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">NicksIndian</h5>
+                    <p class="card-text">Bpro mach bhaat dia khaaite bhala paay</p>
+                    <a href="#" class="btn btn-primary">Send $</a>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="col-xs-3 col-sm-3 col-md-3">
+                <div class="card" style="width: 18rem;">
+                  <img src='{% static "shop/bihari.jpg" %}' class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Aaakas Bihari</h5>
+                    <p class="card-text">Bihar ka laala with kano ki samasiya</p>
+                    <a href="#" class="btn btn-primary">Ab khred lin</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xs-3 col-sm-3 col-md-3">
+                <div class="card" style="width: 18rem;">
+                  <img src='{% static "shop/romrom.jpg" %}' class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Kishor Rizzler boi</h5>
+                    <p class="card-text">Rom Rom Bhaiyo mujhe haram ka khana pasand hai aur apne biwi ko mujshe bachake rakhiye</p>
+                    <a href="#" class="btn btn-primary">Follow now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="col-xs-3 col-sm-3 col-md-3">
+                <div class="card" style="width: 18rem;">
+                  <img src='{% static "shop/sahin.jpg" %}' class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Sahin Ahmed</h5>
+                    <p class="card-text">Good at BJs Great at Anal</p>
+                    <a href="#" class="btn btn-primary">Buy now</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xs-3 col-sm-3 col-md-3">
+                <div class="card" style="width: 18rem;">
+                  <img src='{% static "shop/me.jpg" %}' class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Creep</h5>
+                    <p class="card-text">Unfunny fatty</p>
+                    <a href="#" class="btn btn-primary">Send gaali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+              
+          </div>
+         </div>
+      
+              
+                  
+          
+      
+          <!-- left and right controls for the slide -->
+          <a class="carousel-control-prev" href="#demo" data-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+          </a>
+          <a class="carousel-control-next" href="#demo" data-slide="next">
+              <span class="carousel-control-next-icon"></span>
+          </a>
+      
+
+{% endblock %}
+
+    
+  
+    
