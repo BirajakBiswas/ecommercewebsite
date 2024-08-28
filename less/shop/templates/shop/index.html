@@ -12,8 +12,8 @@
 
           .col-md-3 img{
 
-          width:100%;
-          height:auto;
+          width: 227px;
+          max-height: 242px;
           }
 
           body .carousel-indicator li{
@@ -71,7 +71,7 @@
                   <div class="card-body">
                       <h5 class="card-title">{{product.0.product_name}}</h5>
                       <p class="card-text">{{product.0.desc}}</p>
-                      <a href="#" class="btn btn-primary">Buy now</a>
+                      <button id="pr{{product.0.id}}" class="btn btn-primary cart">Add To Cart</button>
                   </div>
                 </div>
              </div>
@@ -84,7 +84,7 @@
                   <div class="card-body">
                     <h5 class="card-title">{{i.product_name}}</h5>
                     <p class="card-text">{{i.desc}}</p>
-                    <a href="#" class="btn btn-primary">Buy now</a>
+                    <button id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button>
                   </div>
                 </div>
               </div>
@@ -118,7 +118,45 @@
 {% endblock %}
 
    
+{% block js %}
+<script>
+// this console.log('ganduexpress') is used to just test whether the js code is working or not
 
-    
+console.log('ganduexpress')
+if(localStorage.getItem('cart')==null){
+  var cart={};
+}
+
+else{
+  cart=JSON.parse(localStorage.getItem('cart'));
+}
+
+$('.cart').click(function(){
+
+console.log('clicked'); 
+var idstr = this.id.toString();
+console.log(idstr);
+
+// basically here the logic is that suppose you have an item which is not in cart right now and you want to add it in cart then the else part of the code works and it gets added to the cart and if the product is already there in cart then if part works and the product amount gets incremented by 1
+
+if (cart[idstr] !=undefined){
+cart[idstr] = cart[idstr] + 1;
+}
+else
+{
+cart[idstr] = 1;
+}
+console.log(cart);
+localStorage.setItem('cart', JSON.stringify(cart));//here local storage is updated using this code to get the current scenario
+});
+
+
+
+
+
+
+
+</script>
+{% endblock %}  
   
     
